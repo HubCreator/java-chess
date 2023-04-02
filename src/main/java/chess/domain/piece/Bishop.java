@@ -27,6 +27,6 @@ public final class Bishop extends SlidingPiece {
         if (team.isWhite()) {
             return WHITE;
         }
-        throw new AssertionError();
+        throw new UnsupportedOperationException();
     }
 }

@@ -28,6 +28,6 @@ public final class Rook extends SlidingPiece {
         if (team.isWhite()) {
             return WHITE;
         }
-        throw new AssertionError();
+        throw new UnsupportedOperationException();
     }
 }

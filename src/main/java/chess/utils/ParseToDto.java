@@ -41,7 +41,7 @@ public final class ParseToDto {
         if (team.isWhite()) {
             return pieceType.getValue().toLowerCase();
         }
-        throw new AssertionError();
+        throw new UnsupportedOperationException();
     }
 
     public static ChessGameSaveDto parseToChessGameDto(final ChessGame chessGame) {

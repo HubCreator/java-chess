@@ -14,9 +14,9 @@ public final class WhitePawn extends Pawn {
 
     private static final List<MovingStrategy> movingStrategies = List.of(MoveUp.instance(), MoveLeftUp.instance(), MoveRightUp.instance());
     private static final List<MovingStrategy> attackStrategies = List.of(MoveLeftUp.instance(), MoveRightUp.instance());
-    private static final WhitePawn INSTANCE = new WhitePawn(new MovingStrategies(movingStrategies), new AttackStrategies(attackStrategies));
+    private static final WhitePawn INSTANCE = new WhitePawn(new MovingStrategies(movingStrategies), new MovingStrategies(attackStrategies));
 
-    private WhitePawn(final MovingStrategies movingStrategies, final AttackStrategies attackStrategies) {
+    private WhitePawn(final MovingStrategies movingStrategies, final MovingStrategies attackStrategies) {
         super(Team.WHITE, PieceType.WHITE_PAWN, movingStrategies, attackStrategies);
     }
 

@@ -32,6 +32,6 @@ public final class Knight extends NonSlidingPiece {
         if (team.isWhite()) {
             return WHITE;
         }
-        throw new AssertionError();
+        throw new UnsupportedOperationException();
     }
 }

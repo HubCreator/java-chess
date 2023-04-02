@@ -15,9 +15,9 @@ public abstract class Pawn extends Piece {
     public static final double DEGRADED_SCORE = 0.5;
     private static final String INVALID_MOVEMENT_MESSAGE = "폰이 해당 지점으로 이동할 수 없습니다.";
 
-    private final AttackStrategies attackStrategies;
+    private final MovingStrategies attackStrategies;
 
-    protected Pawn(final Team team, final PieceType pieceType, final MovingStrategies movingStrategies, final AttackStrategies attackStrategies) {
+    protected Pawn(final Team team, final PieceType pieceType, final MovingStrategies movingStrategies, final MovingStrategies attackStrategies) {
         super(team, pieceType, movingStrategies);
         this.attackStrategies = attackStrategies;
     }
@@ -45,18 +45,5 @@ public abstract class Pawn extends Piece {
             return Collections.emptyList();
         }
         throw new IllegalArgumentException(INVALID_MOVEMENT_MESSAGE);
-    }
-
-    protected static final class AttackStrategies {
-
-        private final List<MovingStrategy> strategies;
-
-        public AttackStrategies(final List<MovingStrategy> strategies) {
-            this.strategies = strategies;
-        }
-
-        private boolean contains(final MovingStrategy strategy) {
-            return strategies.contains(strategy);
-        }
     }
 }

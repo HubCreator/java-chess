@@ -36,7 +36,7 @@ public final class PieceMapper {
     }
 
     private PieceMapper() {
-        throw new AssertionError();
+        throw new UnsupportedOperationException();
     }
 
     public static Piece get(final PieceType pieceType, final Team team) {

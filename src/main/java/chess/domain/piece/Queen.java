@@ -32,6 +32,6 @@ public final class Queen extends SlidingPiece {
         if (team.isWhite()) {
             return WHITE;
         }
-        throw new AssertionError();
+        throw new UnsupportedOperationException();
     }
 }

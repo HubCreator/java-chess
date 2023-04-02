@@ -14,9 +14,9 @@ import java.util.List;
 public final class InitialBlackPawn extends Pawn {
     private static final List<MovingStrategy> movingStrategies = List.of(MoveDownDown.instance(), MoveDown.instance(), MoveLeftDown.instance(), MoveRightDown.instance());
     private static final List<MovingStrategy> attackStrategies = List.of(MoveLeftDown.instance(), MoveRightDown.instance());
-    private static final InitialBlackPawn INSTANCE = new InitialBlackPawn(new MovingStrategies(movingStrategies), new AttackStrategies(attackStrategies));
+    private static final InitialBlackPawn INSTANCE = new InitialBlackPawn(new MovingStrategies(movingStrategies), new MovingStrategies(attackStrategies));
 
-    private InitialBlackPawn(final MovingStrategies movingStrategies, final AttackStrategies attackStrategies) {
+    private InitialBlackPawn(final MovingStrategies movingStrategies, final MovingStrategies attackStrategies) {
         super(Team.BLACK, PieceType.INITIAL_BLACK_PAWN, movingStrategies, attackStrategies);
     }
 
