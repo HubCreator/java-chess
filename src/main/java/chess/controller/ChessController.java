@@ -2,16 +2,13 @@ package chess.controller;
 
 import chess.dao.DbChessGameDao;
 import chess.domain.game.ChessGame;
-import chess.domain.gamefactory.DefaultGameFactory;
 import chess.domain.piece.Piece;
 import chess.domain.piece.PieceType;
-import chess.dto.game.ChessGameLoadDto;
 import chess.dto.inputView.ReadCommandDto;
 import chess.dto.outputView.PrintEndMessageDto;
 import chess.dto.outputView.PrintErrorMessageDto;
 import chess.dto.outputView.PrintInitialMessageDto;
 import chess.service.ChessGameService;
-import chess.utils.ParseToDomain;
 import chess.view.IOViewResolver;
 
 import java.util.EnumMap;
@@ -75,14 +72,7 @@ public final class ChessController {
         if (!gameCommand.isFirstMove()) {
             return chessGame;
         }
-        ChessGame updatedChessGame = null;
-        if (chessGameService.hasHistory()) {
-            final ChessGameLoadDto chessGameLoadDto = chessGameService.loadGame();
-            updatedChessGame = ChessGame.of(
-                    ParseToDomain.parseToBoard(chessGameLoadDto),
-                    ParseToDomain.parseToTurn(chessGameLoadDto));
-        }
-        updatedChessGame = new DefaultGameFactory().generate();
+        ChessGame updatedChessGame = chessGameService.load();
         ioViewResolver.outputViewResolve(updatedChessGame.printBoard());
         return updatedChessGame;
     }

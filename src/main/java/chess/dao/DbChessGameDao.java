@@ -52,20 +52,20 @@ public final class DbChessGameDao implements ChessDao {
              final PreparedStatement preparedStatement = connection.prepareStatement(sql);
              final ResultSet resultSet = preparedStatement.executeQuery();
         ) {
-            final List<String> piece_type = new ArrayList<>();
-            final List<String> piece_file = new ArrayList<>();
-            final List<String> piece_ranks = new ArrayList<>();
-            final List<String> piece_teams = new ArrayList<>();
-            String last_turn = "";
+            final List<String> pieceType = new ArrayList<>();
+            final List<String> pieceFile = new ArrayList<>();
+            final List<String> pieceRanks = new ArrayList<>();
+            final List<String> pieceTeams = new ArrayList<>();
+            String lastTurn = "";
 
             while (resultSet.next()) {
-                piece_type.add(resultSet.getString("piece_type"));
-                piece_file.add(resultSet.getString("piece_file"));
-                piece_ranks.add(resultSet.getString("piece_rank"));
-                piece_teams.add(resultSet.getString("piece_team"));
-                last_turn = resultSet.getString("last_turn");
+                pieceType.add(resultSet.getString("piece_type"));
+                pieceFile.add(resultSet.getString("piece_file"));
+                pieceRanks.add(resultSet.getString("piece_rank"));
+                pieceTeams.add(resultSet.getString("piece_team"));
+                lastTurn = resultSet.getString("last_turn");
             }
-            return new ChessGameLoadDto(piece_type, piece_file, piece_ranks, piece_teams, last_turn);
+            return new ChessGameLoadDto(pieceType, pieceFile, pieceRanks, pieceTeams, lastTurn);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (NullPointerException e) {

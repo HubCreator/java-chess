@@ -29,11 +29,11 @@ public final class IOViewResolver {
 
     private void initOutputViewMappings(final OutputView outputView) {
         outputViewMap.put(PrintInitialMessageDto.class, dto -> outputView.printInitialMessage());
-        outputViewMap.put(PrintErrorMessageDto.class, dto -> outputView.printErrorMessage((PrintErrorMessageDto) dto));
         outputViewMap.put(PrintBoardDto.class, dto -> outputView.printBoard((PrintBoardDto) dto));
         outputViewMap.put(PrintEndMessageDto.class, dto -> outputView.printEndMessage());
         outputViewMap.put(PrintTotalScoreDto.class, dto -> outputView.printTotalScore((PrintTotalScoreDto) dto));
         outputViewMap.put(PrintWinnerDto.class, dto -> outputView.printWinner((PrintWinnerDto) dto));
+        outputViewMap.put(PrintErrorMessageDto.class, dto -> outputView.printErrorMessage((PrintErrorMessageDto) dto));
     }
 
     public <T> T inputViewResolve(final Class<T> type) {
