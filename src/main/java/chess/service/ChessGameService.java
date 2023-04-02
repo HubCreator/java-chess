@@ -2,7 +2,9 @@ package chess.service;
 
 import chess.dao.ChessDao;
 import chess.domain.game.ChessGame;
+import chess.domain.gamefactory.DefaultGameFactory;
 import chess.dto.game.ChessGameLoadDto;
+import chess.utils.ParseToDomain;
 import chess.utils.ParseToDto;
 
 public final class ChessGameService {
@@ -28,5 +30,15 @@ public final class ChessGameService {
 
     public boolean hasHistory() {
         return dao.hasHistory();
+    }
+
+    public ChessGame load() {
+        if (hasHistory()) {
+            final ChessGameLoadDto chessGameLoadDto = loadGame();
+            return ChessGame.of(
+                    ParseToDomain.parseToBoard(chessGameLoadDto),
+                    ParseToDomain.parseToTurn(chessGameLoadDto));
+        }
+        return new DefaultGameFactory().generate();
     }
 }
