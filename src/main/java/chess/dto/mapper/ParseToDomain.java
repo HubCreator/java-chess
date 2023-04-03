@@ -1,4 +1,4 @@
-package chess.utils;
+package chess.dto.mapper;
 
 import chess.domain.game.File;
 import chess.domain.game.PieceMapper;
@@ -16,6 +16,7 @@ import java.util.Map;
 public final class ParseToDomain {
 
     private ParseToDomain() {
+        throw new UnsupportedOperationException();
     }
 
     public static Map<Position, Piece> parseToBoard(final ChessGameLoadDto dto) {

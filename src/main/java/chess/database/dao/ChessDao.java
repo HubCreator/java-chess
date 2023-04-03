@@ -1,4 +1,4 @@
-package chess.dao;
+package chess.database.dao;
 
 import chess.dto.game.ChessGameLoadDto;
 import chess.dto.game.ChessGameSaveDto;

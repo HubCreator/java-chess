@@ -6,10 +6,10 @@ import chess.domain.piece.PieceType;
 import chess.domain.piece.Team;
 import chess.domain.piece.pawn.BlackPawn;
 import chess.domain.piece.pawn.WhitePawn;
+import chess.dto.mapper.ParseToDto;
 import chess.dto.outputView.PrintBoardDto;
 import chess.dto.outputView.PrintTotalScoreDto;
 import chess.dto.outputView.PrintWinnerDto;
-import chess.utils.ParseToDto;
 
 import java.util.HashMap;
 import java.util.List;

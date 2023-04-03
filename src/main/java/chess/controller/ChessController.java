@@ -1,6 +1,7 @@
 package chess.controller;
 
-import chess.dao.DbChessGameDao;
+import chess.database.DbInfo;
+import chess.database.dao.DbChessGameDao;
 import chess.domain.game.ChessGame;
 import chess.domain.piece.Piece;
 import chess.domain.piece.PieceType;
@@ -35,7 +36,8 @@ public final class ChessController {
     public ChessController(final IOViewResolver ioViewResolver) {
         this.ioViewResolver = ioViewResolver;
         this.gameStatusMap = new EnumMap<>(GameCommand.class);
-        this.chessGameService = new ChessGameService(new DbChessGameDao());
+        final DbChessGameDao dao = new DbChessGameDao(DbInfo.service_url, DbInfo.service_user, DbInfo.service_password);
+        this.chessGameService = new ChessGameService(dao);
         initGameStatusMap();
     }
 

@@ -1,4 +1,4 @@
-package chess.utils;
+package chess.dto.mapper;
 
 import chess.domain.game.ChessGame;
 import chess.domain.game.File;
@@ -17,6 +17,7 @@ import java.util.Map;
 public final class ParseToDto {
 
     private ParseToDto() {
+        throw new UnsupportedOperationException();
     }
 
     public static PrintBoardDto parseToPrintBoardDto(final Map<Position, Piece> board) {

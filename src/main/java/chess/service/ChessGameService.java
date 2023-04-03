@@ -1,11 +1,11 @@
 package chess.service;
 
-import chess.dao.ChessDao;
+import chess.database.dao.ChessDao;
 import chess.domain.game.ChessGame;
 import chess.domain.gamefactory.DefaultGameFactory;
 import chess.dto.game.ChessGameLoadDto;
-import chess.utils.ParseToDomain;
-import chess.utils.ParseToDto;
+import chess.dto.mapper.ParseToDomain;
+import chess.dto.mapper.ParseToDto;
 
 public final class ChessGameService {
 

@@ -1,4 +1,4 @@
-package chess.dao;
+package chess.database.dao;
 
 import chess.dto.game.ChessGameLoadDto;
 import chess.dto.game.ChessGameSaveDto;
@@ -13,13 +13,19 @@ import java.util.List;
 
 public final class DbChessGameDao implements ChessDao {
 
+    private final String url;
+    private final String user;
+    private final String password;
+
+    public DbChessGameDao(final String url, final String user, final String password) {
+        this.url = url;
+        this.user = user;
+        this.password = password;
+    }
+
     private Connection getConnection() {
         try {
-            return DriverManager.getConnection(
-                    "jdbc:mysql://127.0.0.1:13306/chess?useSSL=false&serverTimezone=UTC",
-                    "root",
-                    "root"
-            );
+            return DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
