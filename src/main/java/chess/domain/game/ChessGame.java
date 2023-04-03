@@ -11,6 +11,7 @@ import chess.dto.outputView.PrintTotalScoreDto;
 import chess.dto.outputView.PrintWinnerDto;
 import chess.utils.ParseToDto;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +24,7 @@ public final class ChessGame {
     private Turn turn;
 
     private ChessGame(final Map<Position, Piece> board, final Turn turn) {
-        this.board = board;
+        this.board = new HashMap<>(board);
         this.turn = turn;
     }
 

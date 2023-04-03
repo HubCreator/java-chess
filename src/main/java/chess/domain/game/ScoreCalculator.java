@@ -15,6 +15,7 @@ public final class ScoreCalculator {
     private static final int COUNT_OF_PAWN_DEGRADE_SCORE = 2;
 
     private ScoreCalculator() {
+        throw new UnsupportedOperationException();
     }
 
     public static double calculateScoreByTeam(final Team team, final Map<Position, Piece> board) {

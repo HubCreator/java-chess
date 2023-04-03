@@ -33,7 +33,7 @@ public final class DefaultGameFactory implements ChessGameFactory {
         return ChessGame.of(board);
     }
 
-    private  void initializeBoard(final Map<Position, Piece> board) {
+    private void initializeBoard(final Map<Position, Piece> board) {
         for (File file : File.values()) {
             for (Rank rank : Rank.values()) {
                 board.put(Position.of(file, rank), Empty.instance());
@@ -41,40 +41,40 @@ public final class DefaultGameFactory implements ChessGameFactory {
         }
     }
 
-    private  void initPawn(final Map<Position, Piece> board) {
+    private void initPawn(final Map<Position, Piece> board) {
         for (File file : File.values()) {
             board.put(Position.of(file, Rank.TWO), InitialWhitePawn.instance());
             board.put(Position.of(file, Rank.SEVEN), InitialBlackPawn.instance());
         }
     }
 
-    private  void initRook(final Map<Position, Piece> board) {
+    private void initRook(final Map<Position, Piece> board) {
         board.put(Position.of(File.A, Rank.ONE), Rook.instance(Team.WHITE));
         board.put(Position.of(File.H, Rank.ONE), Rook.instance(Team.WHITE));
         board.put(Position.of(File.A, Rank.EIGHT), Rook.instance(Team.BLACK));
         board.put(Position.of(File.H, Rank.EIGHT), Rook.instance(Team.BLACK));
     }
 
-    private  void initKnight(final Map<Position, Piece> board) {
+    private void initKnight(final Map<Position, Piece> board) {
         board.put(Position.of(File.B, Rank.ONE), Knight.instance(Team.WHITE));
         board.put(Position.of(File.G, Rank.ONE), Knight.instance(Team.WHITE));
         board.put(Position.of(File.B, Rank.EIGHT), Knight.instance(Team.BLACK));
         board.put(Position.of(File.G, Rank.EIGHT), Knight.instance(Team.BLACK));
     }
 
-    private  void initBishop(final Map<Position, Piece> board) {
+    private void initBishop(final Map<Position, Piece> board) {
         board.put(Position.of(File.C, Rank.ONE), Bishop.instance(Team.WHITE));
         board.put(Position.of(File.F, Rank.ONE), Bishop.instance(Team.WHITE));
         board.put(Position.of(File.C, Rank.EIGHT), Bishop.instance(Team.BLACK));
         board.put(Position.of(File.F, Rank.EIGHT), Bishop.instance(Team.BLACK));
     }
 
-    private  void initQueen(final Map<Position, Piece> board) {
+    private void initQueen(final Map<Position, Piece> board) {
         board.put(Position.of(File.D, Rank.ONE), Queen.instance(Team.WHITE));
         board.put(Position.of(File.D, Rank.EIGHT), Queen.instance(Team.BLACK));
     }
 
-    private  void initKing(final Map<Position, Piece> board) {
+    private void initKing(final Map<Position, Piece> board) {
         board.put(Position.of(File.E, Rank.ONE), King.instance(Team.WHITE));
         board.put(Position.of(File.E, Rank.EIGHT), King.instance(Team.BLACK));
     }
