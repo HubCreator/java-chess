@@ -32,16 +32,12 @@ public abstract class Piece {
         return pieceType == this.pieceType;
     }
 
+    public final boolean isSameTeamWith(final Team team) {
+        return this.team == team;
+    }
+
     public final boolean isEmpty() {
         return team.isEmpty();
-    }
-
-    public boolean isWhite() {
-        return team.isWhite();
-    }
-
-    public boolean isBlack() {
-        return team.isBlack();
     }
 
     public final Team getTeam() {
@@ -50,10 +46,6 @@ public abstract class Piece {
 
     public final PieceType getPieceType() {
         return pieceType;
-    }
-
-    public boolean isSameTeamWith(final Team team) {
-        return this.team == team;
     }
 
     public double getScore() {
