@@ -3,11 +3,7 @@ package chess.database.dao;
 import chess.dto.game.ChessGameLoadDto;
 import chess.dto.game.ChessGameSaveDto;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +23,8 @@ public final class DbChessGameDao implements ChessDao {
         try {
             return DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+//            throw new RuntimeException(e);
+            return null;
         }
     }
 
